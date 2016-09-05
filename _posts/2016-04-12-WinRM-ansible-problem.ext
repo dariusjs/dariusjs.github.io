@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "WinRM 500 error with Ansible"
+date:   2016-04-12 11:30:00
+categories: windows ansible
+tags: [jekyll]
+---
+
+Today I ran into a problem with the provisioning of two Windows Virtual Machines where I was not able to connect to them through WinRM. The regular procedure docuemnted by Ansible [I'm an inline-style link](http://docs.ansible.com/ansible/intro_windows.html#windows-system-prep) provides a powershell script that helps to configure WinRM for the desired state. For an unknown reason these two virtual machines were rejecting WinRM connections with the response below.
+
+{% highlight bash %}
+osx:ansible darius$ ansible -m win_ping test.host.localdomain
+test.host.localdomain | FAILED! => {
+    "failed": true, 
+    "msg": "kerbros: 500 WinRMTransport. [Errno 54] Connection reset by peer, ssl: 500 WinRMTransport. [Errno 54] Connection reset by peer"
+}
+{% endhighlight %}
+
+After digging around I came across this KB from Microsoft on how to reset the WinRM listeners. https://support.microsoft.com/en-us/kb/974504  Following the procedure and re-running the Ansible provided script solved the problem so that I was able to get WinRM connectivity working again.
+
+The KB procedure applied on my system:
+PS C:\Windows\system32> winrm enumerate winrm/config/listener
+
+{% highlight powershell %}
+Listener
+    Address = *
+    Transport = HTTP
+    Port = 5985
+    Hostname
+    Enabled = true
+    URLPrefix = wsman
+    CertificateThumbprint
+    ListeningOn = 127.0.0.1, 192.168.1.187
+
+<br> 
+
+Listener
+    Address = *
+    Transport = HTTPS
+    Port = 5986
+    Hostname = WIN-1PNFM9JBONB
+    Enabled = true
+    URLPrefix = wsman
+    CertificateThumbprint = 12412412412412412
+    ListeningOn = 127.0.0.1, 192.168.1.187
+
+PS C:\Windows\system32> winrm delete winrm/config/Listener?Address=*+Transport=HTTP
+PS C:\Windows\system32> winrm delete winrm/config/Listener?Address=*+Transport=HTTPS
+{% endhighlight %}

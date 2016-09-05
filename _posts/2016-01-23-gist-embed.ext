@@ -1,0 +1,11 @@
+---
+layout: post
+title:  "Test gist embed"
+date:   2016-01-23 22:52:00
+categories: jekyll update
+tags: [jekyll]
+---
+
+Embed of my checkpoint firewall grabber startup script destined for logstash
+
+<script src="https://gist.github.com/dariusjs/e85a8c8ca6008c0179e3.js"></script>
