@@ -4,12 +4,10 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+I will be mostly be posting infrastructure related things here.
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Aussie expat base out of the Netherlands.
 
 ### Contact me
-
-[email@domain.com](mailto:email@domain.com)
