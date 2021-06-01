@@ -8,8 +8,8 @@
 [https://github.com/dariusjs/cdkExamples](https://github.com/dariusjs/cdkExamples)
 ### 2021-05-12 - Sample Windfarm Manager with a Single Table DynamoDB Table
 
-[https://github.com/dariusjs/windpark](https://github.com/dariusjs/windpark)
+[https://dariusjs.github.io/windpark](https://dariusjs.github.io/windpark)
 ### 2021-04-14 - Sample SheepFarm Manager with a Single Table DynamoDB Table
 
-[https://github.com/dariusjs/sheepfarm](https://github.com/dariusjs/sheepfarm)
+[https://dariusjs.github.io/sheepfarm](https://dariusjs.github.io/sheepfarm)
 
