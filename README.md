@@ -3,6 +3,9 @@
 [@dariusjs](https://twitter.com/dariusjs) 
 [Linkedin](https://www.linkedin.com/in/dariusseroka)
 
+### 2021-07-09 - Packaging up a hello world go app using CDK
+<https://dariusjs.github.io/cdkExamples/cdkGoPackage/>
+
 ### 2021-06-02 - Basic io-ts and fp-ts example on data validation
 [https://dariusjs.github.io/fptest/](https://dariusjs.github.io/fptest/)
 
